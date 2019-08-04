@@ -32,6 +32,11 @@ Plugin 'morhetz/gruvbox'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nightsense/snow'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" post install (yarn install | npm install)
+Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
 call vundle#end()
 filetype plugin indent on
 
@@ -39,6 +44,9 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                    General
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 set termguicolors
 set nocompatible              		" Vi compatibility!
 set history=1000         		" Set how many lines of history 
@@ -59,6 +67,8 @@ map <C-K> :prev <CR>			" Switch between files using ctrl + h
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                 VIM Interface
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set number
+set laststatus=2
 map <C-n> :NERDTreeToggle<CR>
 set wildmenu				" Turn on wild menu
 set wildignore=*.o,*~,*.pyc  		" Ignored compiled files
@@ -103,8 +113,8 @@ hi ColorColumn
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                    Colors
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-colorscheme snow			" Built in colorscheme
+set t_Co=256
+colorscheme PaperColor			" Built in colorscheme
 set background=light
 
 
