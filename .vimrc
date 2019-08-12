@@ -21,24 +21,16 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'mattn/emmet-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'nightsense/snow'
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'ctrlpvim/ctrlp.vim'
-
+Plug 'mattn/emmet-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'ctrlpvim/ctrlp.vim'
 " post install (yarn install | npm install)
-Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
-call vundle#end()
-filetype plugin indent on
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+call plug#end()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
